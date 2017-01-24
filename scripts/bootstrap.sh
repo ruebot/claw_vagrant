@@ -10,7 +10,10 @@ if [ ! -d "$DOWNLOAD_DIR" ]; then
   mkdir -p "$DOWNLOAD_DIR"
 fi
 
+#######################################################################
+# Work around for https://bugs.launchpad.net/cloud-images/+bug/1569237
 echo "ubuntu:ubuntu" | chpasswd
+#######################################################################
 
 cd "$HOME_DIR"
 
