@@ -10,6 +10,8 @@ if [ ! -d "$DOWNLOAD_DIR" ]; then
   mkdir -p "$DOWNLOAD_DIR"
 fi
 
+echo "ubuntu:ubuntu" | chpasswd
+
 cd "$HOME_DIR"
 
 # Set apt-get for non-interactive mode
