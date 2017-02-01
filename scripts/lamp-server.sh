@@ -11,3 +11,5 @@ usermod -a -G www-data ubuntu
 chown -R ubuntu:ubuntu islandora
 
 sed -i '$idate.timezone=America/Toronto' /etc/php/7.0/cli/php.ini
+
+sed -i 's|Listen 80|Listen 8000|g' /etc/apache2/ports.conf
