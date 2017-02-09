@@ -36,8 +36,7 @@ VirtualBox:
 
 1. `git clone https://github.com/Islandora-CLAW/claw_vagrant`
 2. `cd claw_vagrant`
-3. Visit https://github.com/settings/tokens and get an oauth token (check the 'repos' checkbox when making it) and place it [here](https://github.com/Islandora-CLAW/claw_vagrant/blob/master/configs/variables#L21)
-4. `vagrant up`
+3. `vagrant up`
 
 DigitalOcean:
 
