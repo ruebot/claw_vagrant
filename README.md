@@ -1,3 +1,5 @@
+# ![Islandora CLAW Vagrant](https://cloud.githubusercontent.com/assets/2371345/22829608/c44c500c-ef79-11e6-93f6-e2222b60fbc4.png) Islandora CLAW Vagrant
+
 ## Introduction
 
 The is a development environment virtual machine for the Islandora and Fedora 4 project. It should work on any operating system that supports VirtualBox and Vagrant.
