@@ -14,7 +14,7 @@ fi
 
 if [ -f "$KARAF_DIR/etc/org.fcrepo.camel.indexing.triplestore.cfg" ]; then
   # Update fcrepo triplestore indexing config
-  sed -i 's|triplestore.baseUrl=http://localhost:8080/fuseki/test/update|triplestore.baseUrl=http://localhost:8080/bigdata/sparql|' "$KARAF_DIR/etc/org.fcrepo.camel.indexing.triplestore.cfg"
+  sed -i 's|triplestore.baseUrl=http://localhost:8080/fuseki/test/update|triplestore.baseUrl=http://localhost:8080/bigdata/namespace/islandora/sparql|' "$KARAF_DIR/etc/org.fcrepo.camel.indexing.triplestore.cfg"
   sed -i 's|input.stream=broker:topic:fedora|input.stream=activemq:queue:fcrepo-indexing-triplestore|' "$KARAF_DIR/etc/org.fcrepo.camel.indexing.triplestore.cfg"
   sed -i 's|triplestore.reindex.stream=broker:queue:triplestore.reindex|triplestore.reindex.stream=activemq:queue:triplestore.reindex|' "$KARAF_DIR/etc/org.fcrepo.camel.indexing.triplestore.cfg"
 else
