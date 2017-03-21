@@ -4,7 +4,7 @@
 
 ## Introduction
 
-The is a development environment virtual machine for the Islandora and Fedora 4 project. It should work on any operating system that supports VirtualBox and Vagrant.
+The is a development environment virtual machine for Islandora CLAW. It should work on any operating system that supports VirtualBox and Vagrant.
 
 N.B. This virtual machine **should not** be used in production.
 
@@ -18,7 +18,7 @@ N.B. This virtual machine **should not** be used in production.
 
 ### System Resources
 
-By default the virtual machine that is built uses 2GB of RAM. Your host machine will need to be able to support the additional memory use. You can override the CPU and RAM allocation by creating `ISLANDORA_VAGRANT_CPUS` and `ISLANDORA_VAGRANT_MEMORY` environment variables and setting the values. For example, on an Ubuntu host you could add to `~/.bashrc`:
+By default the virtual machine that is built uses 3GB of RAM. Your host machine will need to be able to support the additional memory use. You can override the CPU and RAM allocation by creating `ISLANDORA_VAGRANT_CPUS` and `ISLANDORA_VAGRANT_MEMORY` environment variables and setting the values. For example, on an Ubuntu host you could add to `~/.bashrc`:
 
 ```bash
 export ISLANDORA_VAGRANT_CPUS=4
