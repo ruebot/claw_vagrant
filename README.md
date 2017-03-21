@@ -30,7 +30,7 @@ export ISLANDORA_VAGRANT_MEMORY=4096
 If you use a DNS or host file management plugin with Vagrant, you may want to set a specific hostname for the virtual machine. You can do that with the `ISLANDORA_VAGRANT_HOSTNAME` variable.  The `ISLANDORA_VAGRANT_VIRTUALBOXDESCRIPTION` variables can be used to track the VM build. For example:
 
 ```bash
-export ISLANDORA_VAGRANT_HOSTNAME="islandora-deux"
+export ISLANDORA_VAGRANT_HOSTNAME="claw"
 export ISLANDORA_VAGRANT_VIRTUALBOXDESCRIPTION="Islandora CLAW"
 ```
 
@@ -86,20 +86,20 @@ The default VM login details are:
 
 ## Environment
 
-- Ubuntu 16.04.1
-- Drupal 8.1.10
+- Ubuntu 16.04.2
+- Drupal 8.2.7
 - MySQL 5.7.15
 - Apache 2.4.18
 - Tomcat 8.0.32.0
 - Solr 6.2.1
 - Camel 2.18.1
-- Fedora 4.7.0
+- Fedora 4.7.2
 - Fedora Camel Component 4.5.0
 - BlazeGraph 2.4.1
-- Karaf 4.0.5
-- Alpaca 0.1.1-SNAPSHOT
+- Karaf 4.0.8
+- Alpaca 0.3.1-SNAPSHOT
 - Islandora 8.x-1.x
-- PHP 7.0.8
+- PHP 7.0.15
 - Java 8 (Oracle)
 
 ## Windows Troubleshooting
