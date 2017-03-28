@@ -11,8 +11,25 @@ fi
 cd "$HOME_DIR"
 
 # Drush and drupal deps
-apt-get -y -qq install php7.0-gd php7.0-xml php7.0-mysql php7.0-curl php7.0-json
+apt-get -y -qq install php7.0-gd php7.0-xml php7.0-mysql php7.0-curl php7.0-json php-xdebug
 a2enmod rewrite
+
+# Setup Xdebug
+XDEBUG=$(cat <<EOF
+zend_extension=xdebug.so
+xdebug.idekey="debugit"
+xdebug.remote_host=10.0.2.2
+# Disabling the previous line and enabling the following will allow any remote to connect
+# xdebug.remote_connect_back = 1
+xdebug.remote_connect_back=1
+xdebug.remote_enable=1
+xdebug.remote_autostart=0
+xdebug.remote_handler="dbgp"
+EOF
+)
+
+echo "${XDEBUG}"> /etc/php/7.0/mods-available/xdebug.ini
+
 service apache2 reload
 cd /var/www/html
 
