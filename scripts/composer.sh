@@ -1,11 +1,17 @@
 #!/bin/bash
 echo "Installing Composer"
 
+HOME_DIR=$1
+
+if [ -f "$HOME_DIR/islandora/configs/variables" ]; then
+  . "$HOME_DIR"/islandora/configs/variables
+fi
+
 curl -sS https://getcomposer.org/installer | php
 php composer.phar install --no-progress
 mv composer.phar /usr/local/bin/composer
 
-echo "Installing phpcs"
+echo "Installing phpcs" 
 cd $HOME
 composer global require drupal/coder
 composer global update drupal/coder --prefer-source
