@@ -19,8 +19,6 @@ cd /var/www/html
 # Download Drupal
 git clone https://github.com/Islandora-CLAW/drupal-project drupal
 cd "$DRUPAL_HOME"
-rm composer.lock
-composer config -g github-oauth.github.com $GITHUB_TOKEN
 composer install
 
 # Setup drush and drupal console aliases
@@ -126,3 +124,8 @@ chmod -R g+w "$DRUPAL_HOME"
 chmod -R 755 "$DRUPAL_HOME"/web/libraries
 usermod -a -G www-data ubuntu
 
+# Add files and config for JWT Tokens
+mkdir "$HOME_DIR/auth"
+openssl genrsa -out "$HOME_DIR/auth/private.key" 2048
+openssl rsa -pubout -in "$HOME_DIR/auth/private.key" -out "$HOME_DIR/auth/public.key"
+$DRUSH_CMD config-import -y --partial --source="$HOME_DIR/islandora/configs/drupal/"
