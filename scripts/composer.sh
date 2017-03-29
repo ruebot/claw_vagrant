@@ -7,9 +7,10 @@ if [ -f "$HOME_DIR/islandora/configs/variables" ]; then
   . "$HOME_DIR"/islandora/configs/variables
 fi
 
+cd /tmp
 curl -sS https://getcomposer.org/installer | php
 php composer.phar install --no-progress
-mv composer.phar /usr/local/bin/composer
+sudo mv composer.phar /usr/local/bin/composer
 
 echo "Installing phpcs" 
 cd $HOME
