@@ -16,6 +16,7 @@ for D in */; do
     (cd $D; composer install)
     cp "$HOME_DIR/islandora/configs/Syn/syn-settings.xml" $D
     sed -i "s/'loglevel' => 'NONE'/'loglevel' => 'DEBUG'/" $D/cfg/cfg.php
+    sed -i "s/'security enabled' => false/'security enabled' => true/" $D/cfg/cfg.php
 done
 
 # Gemini
