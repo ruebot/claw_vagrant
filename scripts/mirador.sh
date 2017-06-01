@@ -17,6 +17,4 @@ cd "$DRUPAL_HOME"/web/modules/contrib/ && { unzip /tmp/mirador-8.x-1.x-dev.zip -
 
 rm /tmp/mirador-8.x-1.x-dev.zip
 
-#echo 'drush en mirador -y'
-
 $DRUSH_CMD en -y mirador 
