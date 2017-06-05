@@ -15,7 +15,7 @@ if [ ! -f "$DOWNLOAD_DIR/master.zip" ]; then
 fi
 
 if  [ ! -f "$DOWNLOAD_DIR/mirador-8.x-1.x-dev.zip" ]; then
-    echo "Downolading mirador drupal module"
+    echo "Downloading mirador drupal module"
     cd "$DOWNLOAD_DIR" && { curl -LOk https://ftp.drupal.org/files/projects/mirador-8.x-1.x-dev.zip ;}
     cd "$DRUPAL_HOME"/web/modules/contrib/ && { unzip "$DOWNLOAD_DIR"/mirador-8.x-1.x-dev.zip -d . ;}
 else echo "module already exists"
