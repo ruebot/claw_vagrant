@@ -48,6 +48,7 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provision :shell, :path => "./scripts/solr.sh", :args => home_dir
   config.vm.provision :shell, :path => "./scripts/composer.sh", :args => home_dir, :privileged =>false
   config.vm.provision :shell, :path => "./scripts/drupal.sh", :args => home_dir
+  config.vm.provision :shell, :path => "./scripts/mirador.sh", :args => home_dir
   config.vm.provision :shell, :path => "./scripts/fcrepo.sh", :args => home_dir
   config.vm.provision :shell, :path => "./scripts/blazegraph.sh", :args => home_dir
   config.vm.provision :shell, :path => "./scripts/syn.sh", :args => home_dir
@@ -57,7 +58,6 @@ Vagrant.configure(VAGRANTFILE_API_VERSION) do |config|
   config.vm.provision :shell, :path => "./scripts/islandora-karaf-components.sh", :args => home_dir
   config.vm.provision :shell, :path => "./scripts/config.sh", :args => home_dir
   config.vm.provision :shell, :path => "./scripts/crayfish.sh", :args => home_dir
-  config.vm.provision :shell, :path => "./scripts/mirador.sh", :args => home_dir
   config.vm.provision :shell, :path => "./scripts/post-install.sh", :args => home_dir
   
 end
