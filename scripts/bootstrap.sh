@@ -50,6 +50,7 @@ chown -R tomcat8:tomcat8 /var/lib/tomcat8
 chown -R tomcat8:tomcat8 /var/log/tomcat8
 chmod -R g+w /var/lib/tomcat8
 chmod -R g+w /var/log/tomcat8
+sed -i '$iJAVA_OPTS="${JAVA_OPTS} -Dorg.apache.tomcat.util.buf.UDecoder.ALLOW_ENCODED_SLASH=true"' /etc/defaults/tomcat8
 
 # Wget and curl
 apt-get -y -qq install wget curl
