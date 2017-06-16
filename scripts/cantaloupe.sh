@@ -17,20 +17,8 @@ if [ ! -f "$DOWNLOAD_DIR/openjpeg-v${OPENJPEG_VERSION}-linux-x86_64.tar.gz" ]; t
   wget -q -O "$DOWNLOAD_DIR/openjpeg-v${OPENJPEG_VERSION}-linux-x86_64.tar.gz" "https://github.com/uclouvain/openjpeg/releases/download/v${OPENJPEG_VERSION}/openjpeg-v${OPENJPEG_VERSION}-linux-x86_64.tar.gz"
 fi
 
-#apt-get -y -qq install liblcms2-dev
-#apt-get -y -qq install libpng-dev
-#apt-get -y -qq install libtiff-dev
-#apt-get -y -qq install cmake
-
 tar xf "$DOWNLOAD_DIR/openjpeg-v${OPENJPEG_VERSION}-linux-x86_64.tar.gz" -C /opt
 mv "/opt/openjpeg-v${OPENJPEG_VERSION}-linux-x86_64" /opt/openjpeg
-#tar -xvzf "$DOWNLOAD_DIR/openjpeg-source.tar.gz" -C /tmp 
-#mkdir "/tmp/openjpeg-2.1.2/build"
-#cd "/tmp/openjpeg-2.1.2/build"
-#cmake ..
-#make
-#make install
-#ldconfig
 
 mkdir /opt/cantaloupe
 mkdir /opt/cantaloupe/images
@@ -42,3 +30,7 @@ chown -R tomcat8:tomcat8 /opt/cantaloupe
 chown -R tomcat8:tomcat8 /var/log/cantaloupe
 service tomcat8 restart
 mv /opt/cantaloupe/Cantaloupe-${CANTALOUPE_VERSION}/Cantaloupe-${CANTALOUPE_VERSION}.war /var/lib/tomcat8/webapps/cantaloupe.war
+
+cd $DRUPAL_HOME
+$DRUPAL_CMD config:override openseadragon.settings iiif_server "http://localhost:8080/cantaloupe/iiif/2"
+

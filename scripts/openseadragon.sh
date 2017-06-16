@@ -21,17 +21,16 @@ $DRUSH_CMD en -y openseadragon
 cp openseadragon.json "$DRUPAL_HOME/web/sites/default/files/library-definitions/"
 
 if [ ! -f "$DOWNLOAD_DIR/openseadragon-bin-${OPENSEADRAGON_VERSION}.tar.gz" ]; then
-  cd $DOWNLOAD_DIR
-  wget "https://github.com/openseadragon/openseadragon/releases/download/v2.2.1/openseadragon-bin-2.2.1.tar.gz"
+  wget -O "$DOWNLOAD_DIR/openseadragon-bin-${OPENSEADRAGON_VERSION}.tar.gz" "https://github.com/openseadragon/openseadragon/releases/download/v${OPENSEADRAGON_VERSION}/openseadragon-bin-${OPENSEADRAGON_VERSION}.tar.gz"
 fi
 
 cd "$DRUPAL_HOME/web/sites/"
 if [ ! -d "all/assets/vendor" ]; then
   mkdir -p all/assets/vendor
 fi
-cd all/assets/vendor
 
 cp "$DOWNLOAD_DIR/openseadragon-bin-${OPENSEADRAGON_VERSION}.tar.gz" .
-tar xf "openseadragon-bin-${OPENSEADRAGON_VERSION}.tar.gz"
+tar xf "$DOWNLOAD_DIR/openseadragon-bin-${OPENSEADRAGON_VERSION}.tar.gz" -C "$DRUPAL_HOME/web/sites/all/assets/vendor"
+cd "$DRUPAL_HOME/web/sites/all/assets/vendor"
 mv "openseadragon-bin-${OPENSEADRAGON_VERSION}" openseadragon
 
