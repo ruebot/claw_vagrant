@@ -82,13 +82,19 @@ $DRUSH_CMD -y en devel
 $DRUSH_CMD -y pm-uninstall search
 $DRUSH_CMD en -y search_api
 
-# Set default theme to bootstrap
-$DRUSH_CMD -y en bootstrap
-$DRUSH_CMD -y config-set system.theme default bootstrap
-## THIS IS STUPID
-# blocks are tied to themes because themes define the regions available to place blocks. gross.
-##
+# Set default theme to carapace (and download dependencies, will composer-ize later)
+$DRUSH_CMD --pm-force dl -y adaptivetheme
+$DRUSH_CMD --pm-force dl -y at_tools
+$DRUSH_CMD --pm-force dl -y layout_plugin
+$DRUSH_CMD en -y at_tools
+$DRUSH_CMD en -y layout_plugin
+mkdir /var/www/html/drupal/web/themes/custom
+git clone https://github.com/Favenzio/carapace /var/www/html/drupal/web/themes/custom/carapace
+chown -R www-data:www-data /var/www/html/drupal/web/themes/custom/carapace
+$DRUSH_CMD en -y carapace
+$DRUSH_CMD -y config-set system.theme default carapace
 
+# Islandora CLAW modules
 $DRUSH_CMD en -y islandora
 $DRUSH_CMD en -y islandora_collection
 $DRUSH_CMD en -y islandora_image
