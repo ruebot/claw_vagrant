@@ -83,9 +83,8 @@ $DRUSH_CMD -y pm-uninstall search
 $DRUSH_CMD en -y search_api
 
 # Set default theme to carapace (and download dependencies, will composer-ize later)
-$DRUSH_CMD --pm-force dl -y adaptivetheme
-$DRUSH_CMD --pm-force dl -y at_tools
-$DRUSH_CMD --pm-force dl -y layout_plugin
+cd $DRUPAL_HOME
+composer require "drupal/adaptivetheme:^2.0" "drupal/at_tools:^2.0" "drupal/layout_plugin:^1.0@alpha"
 $DRUSH_CMD en -y at_tools
 $DRUSH_CMD en -y layout_plugin
 mkdir /var/www/html/drupal/web/themes/custom
