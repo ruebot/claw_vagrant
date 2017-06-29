@@ -13,7 +13,7 @@ composer require drupal/libraries dev-3.x
 
 cd "$DRUPAL_HOME/web/modules/contrib"
 # Cloning openseadragon module down
-git clone https://github.com/whikloj/openseadragon.git
+git clone https://github.com/Islandora-CLAW/openseadragon.git
 cd openseadragon
 $DRUSH_CMD en -y openseadragon
 
