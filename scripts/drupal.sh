@@ -137,4 +137,4 @@ usermod -a -G www-data ubuntu
 mkdir "$HOME_DIR/auth"
 openssl genrsa -out "$HOME_DIR/auth/private.key" 2048
 openssl rsa -pubout -in "$HOME_DIR/auth/private.key" -out "$HOME_DIR/auth/public.key"
-$DRUSH_CMD config-import -y --partial --source="$HOME_DIR/islandora/configs/drupal/"
+#$DRUSH_CMD config-import -y --partial --source="$HOME_DIR/islandora/configs/drupal/"
