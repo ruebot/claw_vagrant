@@ -4,9 +4,9 @@ feature:repo-add file:/home/ubuntu/Alpaca/karaf/build/resources/main/features.xm
 feature:repo-add mvn:org.fcrepo.apix/fcrepo-api-x-karaf/LATEST/xml/features
 
 feature:install islandora-http-client
+feature:install fcrepo-api-x
+
 feature:install islandora-connector-broadcast
 feature:install islandora-indexing-triplestore
 feature:install islandora-indexing-fcrepo
-
-feature:install fcrepo-api-x
 feature:install fcrepo-indexing-triplestore
