@@ -9,8 +9,7 @@ if [ -f "$HOME_DIR/islandora/configs/variables" ]; then
 fi
 
 cd /var/www/html
-#git clone https://github.com/Islandora-CLAW/Crayfish.git
-git clone -b issue-640 https://github.com/dannylamb/Crayfish.git
+git clone https://github.com/Islandora-CLAW/Crayfish.git
 cd Crayfish
 
 for D in */; do

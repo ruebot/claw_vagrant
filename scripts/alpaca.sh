@@ -9,8 +9,7 @@ if [ -f "$HOME_DIR/islandora/configs/variables" ]; then
 fi
 
 cd "$HOME_DIR"
-#git clone https://github.com/Islandora-CLAW/Alpaca.git
-git clone -b issue-640 https://github.com/dannylamb/Alpaca.git
+git clone https://github.com/Islandora-CLAW/Alpaca.git
 cd Alpaca
 chown -R ubuntu:ubuntu "$HOME_DIR/Alpaca"
 sudo -u ubuntu ./gradlew install
