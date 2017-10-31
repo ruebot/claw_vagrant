@@ -25,9 +25,20 @@ sed -i 's|log4j.appender.FILE.File=${catalina.home}/logs/fits-service.log|log4j.
 sudo cp -R /var/www/html/drupal/web/modules/contrib/search_api_solr/solr-conf/6.x/* /var/solr/data/CLAW/conf
 service solr restart
 
-# Cycle tomcat
-cd /var/lib/tomcat8
-service tomcat8 restart
+# Cycle some of the Java stack for Api-X
+service karaf-service stop
+service tomcat8 stop
+service activemq restart
+sleep 60
+service tomcat8 start
+sleep 60
+service karaf-service start
+sleep 60
+
+# Load microservices into Api-X
+curl -i -X POST -H "Authorization: Bearer islandora" -H "Content-Type: text/plain" -d "http://localhost:8000/houdini/convert" "http://localhost:8081/services//apix:load"
+curl -i -X POST -H "Authorization: Bearer islandora" -H "Content-Type: text/plain" -d "http://localhost:8000/houdini/identify" "http://localhost:8081/services//apix:load"
+curl -i -X POST -H "Authorization: Bearer islandora" -H "Content-Type: text/plain" -d "http://localhost:8000/hypercube/" "http://localhost:8081/services//apix:load"
 
 # Clear drupal cache
 $DRUSH_CMD cache-rebuild
