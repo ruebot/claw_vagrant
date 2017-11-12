@@ -135,7 +135,7 @@ rm *.zip
 chown -R www-data:www-data "$DRUPAL_HOME"
 chmod -R g+w "$DRUPAL_HOME"
 chmod -R 755 "$DRUPAL_HOME"/web/libraries
-usermod -a -G www-data ubuntu
+usermod -a -G www-data $CLAW_USER
 
 # Add files and config for JWT Tokens
 mkdir "$HOME_DIR/auth"

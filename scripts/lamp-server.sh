@@ -2,13 +2,19 @@
 
 echo "Installing LAMP server packages"
 
+HOME_DIR=$1
+
+if [ -f "$HOME_DIR/islandora/configs/variables" ]; then
+  . "$HOME_DIR"/islandora/configs/variables
+fi
+
 PACKAGES="libwrap0 ssl-cert libterm-readkey-perl mysql-client libdbi-perl libmysqlclient20 mysql-client-core-5.7 mysql-common apache2 mysql-server mysql-server-core-5.7 tcpd libaio1 mysql-server libdbd-mysql-perl libhtml-template-perl php7.0 php7.0-dev libapache2-mod-php7.0 php7.0-mbstring"
 
 apt-get -qq install -y $PACKAGES
 
-usermod -a -G www-data ubuntu
+usermod -a -G www-data $CLAW_USER
 
-chown -R ubuntu:ubuntu islandora
+chown -R $CLAW_USER. islandora
 
 sed -i '$idate.timezone=America/Toronto' /etc/php/7.0/cli/php.ini
 

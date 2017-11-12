@@ -12,7 +12,7 @@ fi
 
 #######################################################################
 # Work around for https://bugs.launchpad.net/cloud-images/+bug/1569237
-echo "ubuntu:ubuntu" | chpasswd
+echo "$CLAW_USER:$CLAW_USER" | chpasswd
 #######################################################################
 
 cd "$HOME_DIR"
@@ -44,7 +44,7 @@ apt-get -y -qq install maven
 
 # Tomcat
 apt-get -y -qq install tomcat8 tomcat8-admin
-usermod -a -G tomcat8 ubuntu
+usermod -a -G tomcat8 $CLAW_USER
 sed -i '$i<user username="islandora" password="islandora" roles="manager-gui"/>' /etc/tomcat8/tomcat-users.xml
 chown -R tomcat8:tomcat8 /var/lib/tomcat8
 chown -R tomcat8:tomcat8 /var/log/tomcat8
