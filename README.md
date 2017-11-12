@@ -131,7 +131,7 @@ You have to select the islandora namespace in the [namespaces tab](http://localh
 - Alpaca 0.3.1-SNAPSHOT
 - Islandora 8.x-1.x
 - PHP 7.0.15
-- Java 8 (Oracle)
+- Java 8 (OpenJDK)
 - Cantaloupe IIIF Server v3.3
 - ActiveMQ 5.14.5
 
