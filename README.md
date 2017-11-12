@@ -114,7 +114,11 @@ the following header in HTTP requests:
 You can access the BlazeGraph interface at: http://localhost:8080/bigdata/
 
 You have to select the islandora namespace in the [namespaces tab](http://localhost:8080/bigdata/#namespaces) before you can execute queries.
-  
+
+### FITS
+
+You can access the FITS Web Service at http://localhost:8080/fits/
+
 ## Environment
 
 - Ubuntu 16.04.2
