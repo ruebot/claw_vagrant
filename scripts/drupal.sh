@@ -141,4 +141,8 @@ usermod -a -G www-data $CLAW_USER
 mkdir "$HOME_DIR/auth"
 openssl genrsa -out "$HOME_DIR/auth/private.key" 2048
 openssl rsa -pubout -in "$HOME_DIR/auth/private.key" -out "$HOME_DIR/auth/public.key"
-$DRUSH_CMD config-import -y --partial --source="$HOME_DIR/islandora/configs/drupal/"
+
+cp -R "$HOME_DIR/islandora/configs/drupal" /tmp/staging-drupal
+sed -i "s|/home/ubuntu|$HOME_DIR|g" /tmp/staging-drupal/*.yml
+
+$DRUSH_CMD config-import -y --partial --source=/tmp/staging-drupal/
