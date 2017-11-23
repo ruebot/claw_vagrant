@@ -11,8 +11,8 @@ fi
 cd "$HOME_DIR"
 git clone https://github.com/Islandora-CLAW/Alpaca.git
 cd Alpaca
-chown -R ubuntu:ubuntu "$HOME_DIR/Alpaca"
-sudo -u ubuntu ./gradlew install
+chown -R $CLAW_USER. "$HOME_DIR/Alpaca"
+sudo -u $CLAW_USER ./gradlew install
 
 # Chown everything over to the ubuntu user just in case
-chown -R ubuntu:ubuntu "$HOME_DIR/Alpaca"
+chown -R $CLAW_USER. "$HOME_DIR/Alpaca"

@@ -15,7 +15,7 @@ fi
 cp "$DOWNLOAD_DIR/apache-activemq-$ACTIVEMQ_VERSION-bin.tar.gz" /tmp
 tar -xzf "$DOWNLOAD_DIR/apache-activemq-$ACTIVEMQ_VERSION-bin.tar.gz" -C /opt
 mv /opt/apache-activemq-$ACTIVEMQ_VERSION /opt/activemq
-chown -hR ubuntu:ubuntu /opt/activemq
+chown -hR $CLAW_USER. /opt/activemq
 
 ln -snf /opt/activemq/bin/activemq /etc/init.d/activemq
 update-rc.d activemq defaults

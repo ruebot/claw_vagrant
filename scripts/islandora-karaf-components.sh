@@ -10,4 +10,8 @@ fi
 export JAVA_HOME=/usr/lib/jvm/java-8-openjdk-amd64
 
 echo "Installing Karaf Features"
-$KARAF_CLIENT -f $KARAF_CONFIGS/alpaca.script
+
+cp $KARAF_CONFIGS/alpaca.script /tmp/alpaca.script
+sed -i "s|/home/ubuntu|$HOME_DIR|g" /tmp/alpaca.script
+
+$KARAF_CLIENT -f /tmp/alpaca.script

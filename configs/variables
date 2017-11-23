@@ -1,6 +1,7 @@
 #!/bin/bash
 
 HOME_DIR=$1
+CLAW_USER=$(stat -c '%U' "$HOME_DIR")
 DOWNLOAD_DIR="$HOME_DIR/islandora/downloads"
 FEDORA_VERSION=4.7.3
 KARAF_VERSION=4.0.8
